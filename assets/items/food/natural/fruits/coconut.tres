@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c2hnsxvdx1oqt"]
+
+[ext_resource type="Script" uid="uid://drh7jbqhnhemc" path="res://assets/items/ItemData.gd" id="1_3kgus"]
+[ext_resource type="Texture2D" uid="uid://cpnyvdwvso54i" path="res://assets/items/images/coconut_hd.png" id="2_3kgus"]
+
+[resource]
+script = ExtResource("1_3kgus")
+type = 0
+name = "Coconut"
+texture = ExtResource("2_3kgus")
+max_stack_size = 20
+stackable = true
+is_consumable = true
+health_restore = 10

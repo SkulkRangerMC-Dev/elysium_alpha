@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://t287sn0n7xj6"]
+
+[ext_resource type="PackedScene" uid="uid://cqpoutfvege7h" path="res://assets/coconut.blend" id="1_68kns"]
+[ext_resource type="Script" uid="uid://byfh3h71kurak" path="res://item_pickup_alpha.gd" id="2_gktd8"]
+[ext_resource type="Resource" uid="uid://c2hnsxvdx1oqt" path="res://assets/items/food/natural/fruits/coconut.tres" id="2_okt3d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68kns"]
+
+[node name="coconut" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_gktd8")
+data = ExtResource("2_okt3d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_68kns")
+
+[node name="coconut" parent="Area3D" instance=ExtResource("1_68kns")]
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

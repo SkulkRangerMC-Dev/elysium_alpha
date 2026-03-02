@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://beh822d76n8cl"]
+
+[ext_resource type="PackedScene" uid="uid://bpgd8hspsy0x3" path="res://wrecked_hut_alt.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bolq8rfdanq06" path="res://assets/player_files/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://d3gevavdusemu" path="res://cutscene_spawn_basic.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bf678uxl3urom" path="res://broken_ship.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://t287sn0n7xj6" path="res://assets/scene/coconut.tscn" id="4_1bvp3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+
+[node name="Main" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="coconut" parent="Ground" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.16255, 1.02675, 10.9243)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.659674, -0.751552, -0.000281246, 0.316962, -0.278552, 0.906611, -0.681444, 0.597979, 0.421967, 0, 2, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+unique_name_in_owner = true
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -0.0671957, -0.5, 10.0627)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(3.70903e-07, 2.82843, -2.82843, -3.70903e-07, 2.82843, 2.82843, 4, 0, 5.24536e-07, -18.082, 21.9348, -0.635074)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+script = ExtResource("2_0xm2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.065532, 0.0964251, -0.0268888)
+shape = SubResource("BoxShape3D_ig7tw")
+
+[node name="WreckedHutAlt" parent="." instance=ExtResource("1_h2yge")]
+transform = Transform3D(-0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866026, 8.83745, -0.495661, -9.98622)
+
+[node name="coconut" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.00229, 0.0267491, 5.63946)
+
+[node name="coconut2" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.51062, 0.0267491, 7.30231)
+
+[node name="BrokenShip" parent="." instance=ExtResource("2_lquwl")]
+transform = Transform3D(-0.481331, -0.0391241, 0.72967, -0.124038, 0.86544, -0.0354188, -0.72011, -0.12292, -0.481619, -1.76229, 0.211839, -9.032)
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

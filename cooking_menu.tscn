@@ -1,0 +1,130 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmwslqam5rx1p"]
+
+[ext_resource type="Script" uid="uid://7o6phiwd78sd" path="res://assets/items/food_cooking_code/cookingmenu.gd" id="1_wf5yn"]
+
+[node name="CookingMenu" type="CanvasLayer"]
+script = ExtResource("1_wf5yn")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 400.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = -100.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.057
+anchor_right = 0.965
+anchor_bottom = 0.943
+offset_left = -0.700001
+offset_top = 1.84
+offset_right = -1.30005
+offset_bottom = 2.15997
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="RecipeList" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/HBoxContainer/RecipeList"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/RecipeList/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="DishIcon" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="IngredientsGrid" type="GridContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 4
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect5" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect6" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect7" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect8" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CookButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "COOK"

@@ -1,0 +1,57 @@
+extends Area3D
+var cutscene_file = load("res://cutscene_ui.tscn") as PackedScene
+var fadein_file = load("res://fadein-out.tscn") as PackedScene
+var new_cutscene = cutscene_file.instantiate()
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var player = $Player
+
+func _on_body_entered(body: CharacterBody3D) -> void:
+		print("test")
+		if body is Player:
+			body.health -= 10
+			var playerhealth = body.health
+			print("player health is a ", playerhealth)
+		if body.health <= 0:
+			var instantiate_fadein = fadein_file.instantiate()
+			add_child(instantiate_fadein)
+			animation_player.play("fade_out")
+
+the is the stuff for the the cutscene spawn basic old one
+
+below is new one
+
+extends Area3D
+
+var cutscene_file = load("res://cutscene_ui.tscn") as PackedScene
+var fadein_file = load("res://fadein-out.tscn") as PackedScene
+
+# NOTE: We removed the .instantiate() variables from here. 
+# We must do that inside the function, otherwise the game crashes 
+# if you trigger this event twice.
+
+# NOTE: We removed @onready var animation_player. 
+# It doesn't exist in the Area3D, it exists inside the fadein file.
+
+func _on_body_entered(body: Node3D) -> void:
+	# check if the body is the player (using name is safer if you didn't add class_name Player)
+	if body.name == "Player":
+		print("test")
+		
+		# 1. Hurt the player
+		body.health -= 10
+		print("player health is ", body.health)
+		
+		# 2. Check for death
+		if body.health <= 0:
+			# Create the fadein effect NOW
+			var new_fadein = fadein_file.instantiate()
+			add_child(new_fadein)
+			
+			# Find the animation player INSIDE the new fadein we just made
+			# Make sure "AnimationPlayer" is the exact name of the node inside fadein-out.tscn
+			var anim = new_fadein.get_node("AnimationPlayer") 
+			
+			if anim:
+				anim.play("fade_out")
+			else:
+				print("Error: Could not find AnimationPlayer inside the fadein scene!")
