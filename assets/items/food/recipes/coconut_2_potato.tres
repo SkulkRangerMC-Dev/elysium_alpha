@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://dl4ip82gkf2f3"]
+
+[ext_resource type="Script" uid="uid://drh7jbqhnhemc" path="res://assets/items/ItemData.gd" id="1_a6xng"]
+[ext_resource type="Resource" uid="uid://c2hnsxvdx1oqt" path="res://assets/items/food/natural/fruits/coconut.tres" id="2_jwjqc"]
+[ext_resource type="Resource" uid="uid://b2wqneilu8kl4" path="res://assets/items/food/cooked/baked_potato.tres" id="3_niuif"]
+[ext_resource type="Script" uid="uid://by1cnl0qro6qa" path="res://assets/items/food_cooking_code/Recipe.gd" id="4_vpd4w"]
+
+[resource]
+script = ExtResource("4_vpd4w")
+id = "nut_2_tater"
+display_name = "Baked Potato"
+result_item = ExtResource("3_niuif")
+ingredient_items = Array[ExtResource("1_a6xng")]([ExtResource("2_jwjqc")])
+requires_campfire = false

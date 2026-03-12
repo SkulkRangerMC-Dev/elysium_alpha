@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bolq8rfdanq06"]
+[gd_scene load_steps=8 format=3 uid="uid://bolq8rfdanq06"]
 
 [ext_resource type="PackedScene" uid="uid://xlw1mgmcal6m" path="res://robot.glb" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dkck2bf12hv8y" path="res://assets/player_files/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://bb4qmhl6f1hux" path="res://assets/2D/inventory.tscn" id="3_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://cmwslqam5rx1p" path="res://cooking_menu.tscn" id="4_5kjsx"]
+[ext_resource type="Script" uid="uid://by1cnl0qro6qa" path="res://assets/items/food_cooking_code/Recipe.gd" id="5_a37sm"]
+[ext_resource type="Resource" uid="uid://dl4ip82gkf2f3" path="res://assets/items/food/recipes/coconut_2_potato.tres" id="6_sr6b8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onrkg"]
 size = Vector3(3.5, 10.5, 3.5)
@@ -25,3 +27,4 @@ shape = SubResource("BoxShape3D_onrkg")
 player = NodePath("..")
 
 [node name="CookingMenu" parent="." instance=ExtResource("4_5kjsx")]
+recipes = Array[ExtResource("5_a37sm")]([ExtResource("6_sr6b8")])

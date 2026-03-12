@@ -1,5 +1,6 @@
 # res://ui/CookingMenu.gd
 extends CanvasLayer
+class_name CookingMenu
 
 @export var recipes: Array[Recipe] = []
 
@@ -21,7 +22,7 @@ func open(inv: Inventory, is_at_campfire: bool) -> void:
 	inventory = inv
 	at_campfire = is_at_campfire
 	visible = true
-	get_tree().paused = true
+	get_tree().paused = false
 
 	# Default to first recipe if any
 	if recipes.size() > 0:
@@ -49,7 +50,7 @@ func _build_recipe_buttons() -> void:
 		var btn := Button.new()
 		btn.text = r.display_name if r.display_name != "" else r.result_item.name
 		btn.icon = r.result_item.texture
-		btn.expand_icon = true
+		btn.expand_icon = false
 		btn.icon_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		btn.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		btn.pressed.connect(_on_recipe_button_pressed.bind(r))
@@ -118,7 +119,6 @@ func _can_cook_current() -> bool:
 	return true
 
 func _on_cook_pressed() -> void:
-	Input.is_action_pressed("cooking_menu")
 	if not _can_cook_current():
 		return
 
