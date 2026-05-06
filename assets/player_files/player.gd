@@ -90,7 +90,7 @@ class_name Player
 @export var fainted_state = false
 @export var in_conversation = false
 
-var spawnpoint = Vector3(0, -0.5, 10)
+var spawnpoint = Vector3(0, -0.5	, 10)
 var fadein_file = load("res://assets/2D/fadein-out.tscn") as PackedScene
 
 @onready var inventory: Inventory = $InventoryCanvas

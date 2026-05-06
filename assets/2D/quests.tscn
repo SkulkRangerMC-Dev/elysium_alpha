@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bavg6pt73nu7c"]
+
+[ext_resource type="StyleBox" uid="uid://dgig7xlxxbt34" path="res://assets/2D/box_styles/wood_box.tres" id="1_gdyso"]
+[ext_resource type="Script" uid="uid://bavlp46sr1v5k" path="res://quests.gd" id="2_avjvs"]
+[ext_resource type="FontFile" uid="uid://bdblhk7t6tjw2" path="res://assets/2D/box_styles/ArchitectsDaughter.ttf" id="2_oskx0"]
+
+[node name="Quests" type="CanvasLayer"]
+script = ExtResource("2_avjvs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 75
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_gdyso")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="QuestContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 125.0
+offset_top = 119.0
+offset_right = 1795.0
+offset_bottom = 255.0
+theme_override_styles/panel = ExtResource("1_gdyso")
+
+[node name="Tasks_Title" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_oskx0")
+theme_override_font_sizes/font_size = 100
+text = "Tasks"
+horizontal_alignment = 1
+vertical_alignment = 1

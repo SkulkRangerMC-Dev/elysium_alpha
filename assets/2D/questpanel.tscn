@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwau8to5ytt26"]
+
+[ext_resource type="StyleBox" uid="uid://dgig7xlxxbt34" path="res://assets/2D/box_styles/wood_box.tres" id="1_a0341"]
+[ext_resource type="Script" uid="uid://cvnjmjqyxifmc" path="res://quest_panel_base.gd" id="1_y0paf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58v23"]
+bg_color = Color(0.278651, 0.183026, 0.0588205, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.806091, 0.472598, 0.255962, 1)
+
+[node name="QuestPanel" type="Panel"]
+custom_minimum_size = Vector2(1670, 250)
+anchors_preset = -1
+anchor_right = 0.87
+anchor_bottom = 0.231
+offset_right = -1670.4
+offset_bottom = -249.48
+theme_override_styles/panel = SubResource("StyleBoxFlat_58v23")
+script = ExtResource("1_y0paf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.1
+anchor_right = 0.135
+anchor_bottom = 0.9
+offset_left = -0.0500011
+offset_right = -0.450012
+offset_bottom = -1.52588e-05
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Heading" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.149
+anchor_top = 0.1
+anchor_right = 0.974
+anchor_bottom = 0.304
+offset_left = 0.169998
+offset_right = 0.419922
+theme_override_font_sizes/font_size = 30
+
+[node name="Panel" type="Panel" parent="Heading"]
+layout_mode = 2
+anchor_left = -0.00798258
+anchor_top = 1.29412
+anchor_right = 0.996372
+anchor_bottom = 3.92157
+offset_left = 1.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_a0341")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Heading"]
+custom_minimum_size = Vector2(1378, 134)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.29412
+anchor_right = 1.0
+anchor_bottom = 3.92157
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="Heading/ScrollContainer"]
+custom_minimum_size = Vector2(1378, 134)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 3
+autowrap_mode = 2
+justification_flags = 0

@@ -55,3 +55,13 @@ func _on_body_entered(body: Node3D) -> void:
 				anim.play("fade_out")
 			else:
 				print("Error: Could not find AnimationPlayer inside the fadein scene!")
+
+## Lowk I forgot what this was for.
+
+text stuff:
+			cutscene_inst.say_left("I think I finally figured the panel out.", thorneimg)
+			cutscene_inst.say_left("A long time ago, there were people who lived across the archipelago. These were the ones that Plato referred to as the Atlantean Race in his records.", thorneimg)
+			cutscene_inst.say_left("It seems they were experimenting on... a sort of, soul energy? It is quite strange but that's what it says.", thorneimg)
+			cutscene_inst.say_right("Uhh... ok, I guess?",cutscene_inst.thorneimg)
+			cutscene_inst.say_right("I don't really understand any of this.", thorneimg)
+			cutscene_inst.say_left("I'll study it more and explain it in a way that... you'd understand.", thorneimg)

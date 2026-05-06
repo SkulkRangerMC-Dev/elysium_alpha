@@ -1,18 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmwslqam5rx1p"]
+[gd_scene load_steps=3 format=3 uid="uid://cmwslqam5rx1p"]
 
 [ext_resource type="Script" uid="uid://7o6phiwd78sd" path="res://assets/items/food_cooking_code/cookingmenu.gd" id="1_wf5yn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wf5yn"]
 
 [node name="CookingMenu" type="CanvasLayer"]
 script = ExtResource("1_wf5yn")
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.093
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.907
 offset_left = 400.0
-offset_top = 100.0
+offset_top = -0.440002
 offset_right = -100.0
-offset_bottom = -100.0
+offset_bottom = 0.439941
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -80,6 +85,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture = SubResource("CanvasTexture_wf5yn")
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/IngredientsGrid"]
 custom_minimum_size = Vector2(100, 100)

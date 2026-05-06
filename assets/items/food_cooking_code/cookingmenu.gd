@@ -29,7 +29,6 @@ func open(inv: Inventory, is_at_campfire: bool) -> void:
 		current_recipe = recipes[0]
 	else:
 		current_recipe = null
-
 	_clear_ingredient_slots()
 	dish_icon.texture = null
 	_update_detail_panel()

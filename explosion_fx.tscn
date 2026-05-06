@@ -1,0 +1,62 @@
+[gd_scene load_steps=13 format=3 uid="uid://bobytu0ve0m6h"]
+
+[ext_resource type="Texture2D" uid="uid://dynn5kt0cvhi7" path="res://assets/2D/brackeys_vfx_bundle/particles/alpha/circle_01_a.png" id="1_yqkkq"]
+
+[sub_resource type="Curve" id="Curve_hn8fq"]
+_data = [Vector2(0, 0.297297), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_se6ek"]
+curve = SubResource("Curve_hn8fq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rsjx1"]
+emission_shape_scale = Vector3(0.25, 0.25, 0.25)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 1.5, 0)
+scale_curve = SubResource("CurveTexture_se6ek")
+
+[sub_resource type="SphereMesh" id="SphereMesh_v4g2i"]
+
+[sub_resource type="Curve" id="Curve_b4kvj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_equmo"]
+curve = SubResource("Curve_b4kvj")
+
+[sub_resource type="Curve" id="Curve_oi35h"]
+_data = [Vector2(0.0123077, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5lxw0"]
+curve = SubResource("Curve_oi35h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_55f1p"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5lxw0")
+alpha_curve = SubResource("CurveTexture_equmo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_la68x"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_yqkkq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2uplm"]
+material = SubResource("StandardMaterial3D_la68x")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.962266, 0, 0, 0, 0.962266, 0, 0, 0, 0.962266, 0, 0, 0)
+amount = 16
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_rsjx1")
+draw_pass_1 = SubResource("SphereMesh_v4g2i")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_55f1p")
+draw_pass_1 = SubResource("PlaneMesh_2uplm")
